@@ -1,6 +1,7 @@
 package com.kallen.controller;
 
 import com.kallen.domain.Account;
+import com.kallen.exception.BusinessException;
 import com.kallen.service.AccountService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,10 @@ public class AccountController {
 
   @GetMapping("/{id}")
   public Result getById(@PathVariable Integer id) {
+    System.out.println(id);
+    if (id<0){
+      throw new BusinessException(Code.PROJECT_BUSINESS_ERR,"参数不合法");
+    }
     Account account = accountService.getById(id);
     Integer code = account !=null?Code.GET_OK:Code.GET_ERR;
     String msg = account!=null?"":"查询失败";

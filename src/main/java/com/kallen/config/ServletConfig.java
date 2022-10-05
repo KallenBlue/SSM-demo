@@ -25,7 +25,7 @@ public class ServletConfig extends AbstractAnnotationConfigDispatcherServletInit
   @Override
   protected Filter[] getServletFilters() {
     CharacterEncodingFilter filter = new CharacterEncodingFilter();
-    filter.setEncoding("uft-8");
+    filter.setEncoding("utf-8");
     return  new Filter[]{filter};
   }
 }

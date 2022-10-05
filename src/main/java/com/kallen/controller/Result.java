@@ -24,6 +24,11 @@ public class Result {
     this.msg = msg;
   }
 
+  public Result(Integer code, String msg) {
+    this.code = code;
+    this.msg = msg;
+  }
+
   public Object getData() {
     return data;
   }
